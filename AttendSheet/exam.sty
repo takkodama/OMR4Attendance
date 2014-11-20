@@ -1,0 +1,32 @@
+\pagestyle{empty}
+\setlength{\topmargin}{-.592in}
+\setlength{\oddsidemargin}{-.674in}
+\setlength{\evensidemargin}{-.674in}
+\setlength{\headheight}{0mm}
+\setlength{\headsep}{0mm}
+\setlength{\textheight}{276.3mm}
+\setlength{\textwidth}{193.5mm}
+\setlength{\columnsep}{2zw}
+\setlength{\columnseprule}{0.5pt}
+\setlength{\mathindent}{1zw}
+\setlength{\leftmargini}{18pt}
+\setlength{\leftmarginii}{12pt}
+\setlength{\leftmarginiii}{12pt}
+\def\labelenumi{\bf\large\theenumi.}
+\def\theenumii{\arabic{enumii}}
+
+\def\head#1#2#3{%
+\twocolumn[%
+	{\bf#1}{\small\sf#2}\hspace{\fill}\mbox{\underline{#3\hspace{1.5em}組\hspace{2.25em}番\ 氏名\hspace{15.5em}}}\par
+	\v2]}
+
+\def\score#1{
+	\v{-1}\hfill$\atop\sf#1$
+	\put(-50, -6){\dashbox(50, 18){}}
+	\par}
+
+
+\def\endpagetag{%
+	\begin{flushright}
+		\scriptsize\bf [[以上]]
+	\end{flushright}}
