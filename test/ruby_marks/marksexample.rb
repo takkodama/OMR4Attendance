@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'ruby_marks'
+
 $:.unshift File.expand_path("../assets", __FILE__)
 
 # Instantiate the Recognizer
