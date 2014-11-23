@@ -17,5 +17,5 @@ gs \
 -dTextAlphaBits=4 \
 -dGraphicsAlphaBits=4 \
 -dMaxStripSize=8192 \
--sOutputFile=${OUTFILE}_%d.png \
+-sOutputFile=png/${OUTFILE}-%d.png \
 ${TARGET}

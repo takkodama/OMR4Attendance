@@ -5,7 +5,7 @@ require 'ruby_marks'
 $:.unshift File.expand_path("../assets", __FILE__)
 
 # Instantiate the Recognizer
-@file = 'assets/ss5.png'
+@file = 'crop1.png'
 @recognizer = RubyMarks::Recognizer.new
 
 # Configuring the document aspects
@@ -59,7 +59,7 @@ end
 @recognizer.file = @file
 #
 flagged_recognizer = @recognizer.flag_all_marks
-flagged_recognizer.write("assets/ss5-result(marks).png")
+flagged_recognizer.write("crop1-result(marks).png")
 #
 
 result = @recognizer.scan
