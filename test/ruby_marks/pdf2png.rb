@@ -1,6 +1,7 @@
+require 'rubygems'
 require 'RMagick'
 
-pdf_file_name = "assets/1row.pdf"
-im = Magick::Image.read(pdf_file_name)
+img = Magick::ImageList.new("06021800.pdf"){self.density = 144}
+img.each_with_index{ |img,i| img.write "#{i.to_s}.png" }
 
-im.write(pdf_file_name + ".png")
+p "successfly finished!"
