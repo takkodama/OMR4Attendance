@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -ne 2 ];then
-echo â€œUsage: $0 target.pdf outfileâ€
+echo ¡°Usage: $0 target.pdf outfile¡±
 exit
 fi
 

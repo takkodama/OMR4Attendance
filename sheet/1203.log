@@ -1,9 +1,9 @@
-This is e-pTeX, Version 3.1415926-p3.3-110825-2.4 (utf8.euc) (TeX Live 2012) (format=platex 2012.6.30)  3 DEC 2014 09:18
+This is e-pTeX, Version 3.1415926-p3.3-110825-2.4 (utf8.euc) (TeX Live 2012) (format=platex 2012.6.30)  3 DEC 2014 09:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**1row.tex
-(./1row.tex
+**1203.tex
+(./1203.tex
 pLaTeX2e <2006/11/10> (based on LaTeX2e <2011/06/27> patch level 0)
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
 rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
@@ -430,8 +430,8 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
 (/usr/local/texlive/2012/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen182
 )
-(./1row.aux)
-\openout1 = `1row.aux'.
+(./1203.aux)
+\openout1 = `1203.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
@@ -1041,7 +1041,7 @@ LaTeX Warning: Command \textcircled invalid in math mode on input line 24.
 
 [1
 
-] (./1row.aux)
+] (./1203.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -1056,4 +1056,4 @@ Here is how much of TeX's memory you used:
  750 hyphenation exceptions out of 8191
  56i,15n,55p,430b,288s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on 1row.dvi (1 page, 10228 bytes).
+Output written on 1203.dvi (1 page, 10240 bytes).
