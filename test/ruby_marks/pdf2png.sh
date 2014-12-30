@@ -12,10 +12,8 @@ gs \
 -dSAFER \
 -dBATCH \
 -dNOPAUSE \
--sDEVICE=png256 \
--r600 \
--dTextAlphaBits=4 \
--dGraphicsAlphaBits=4 \
 -dMaxStripSize=8192 \
+-sDEVICE=png256m \
+-r600 \
 -sOutputFile=png/${OUTFILE}-%d.png \
 ${TARGET}
