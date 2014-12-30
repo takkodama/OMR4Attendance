@@ -1,3 +1,4 @@
+$:.unshift File.dirname(__FILE__)
 require 'rubygems'
 require 'RMagick'
 
@@ -16,8 +17,8 @@ com_starty = 4820
 com_endx = 4720
 com_endy = 5930
 
-n = 0
 imageFiles = []
+n = 0
 
 #Add all files in rsc folder to imageFiles list
 Dir::glob("./rsc/*.jpg").each {|f|

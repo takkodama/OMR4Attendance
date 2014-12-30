@@ -5,32 +5,41 @@ require 'ruby_marks'
 require 'jpgcut'
 require 'settings'
 
-imageFiles = ["./stu_id/stu_id1.jpg", "./stu_id/stu_id2.jpg", "./stu_id/stu_id3.jpg"]
+imageFiles = []
+n = 0
+
+#Add all files in stu_id folder to imageFiles list
+Dir::glob('./stu_id/*.jpg').each {|f|
+  imageFiles.push(f)
+}
 
 imageFiles.each do |jpg|
 
-# Instantiate the Recognizer
-@recognizer.file = "./stu_id/stu_id1.jpg"
+  # Instantiate the Recognizer
+  @recognizer.file = jpg
+  gakuseki = ""
+  n += 1
 
-# To check reading marks correctly
-flagged_recognizer = @recognizer.flag_all_marks
-flagged_recognizer.write("./marked/stu_id1.jpg")
-flagged_recognizer.destroy!
+  # To check reading marks correctly
+  flagged_recognizer = @recognizer.flag_all_marks
+  flagged_recognizer.write('./marked/stu_id' + n.to_s + '.jpg')
+  flagged_recognizer.destroy!
 
-result = @recognizer.scan
-gakuseki = ""
+  # Put characters
+  result = @recognizer.scan
+  result.each do |k, v|
+    if v[1][0] != nil
+    	num = v[1][0]
+    else
+    	num = '?'
+    end
+  gakuseki += num
+  end
 
-p result
-
-result.each do |k, v|
-if v[1][0] != nil
-	num = v[1][0]
-else
-	num = '?'
-end
-gakuseki += num
-end
-
-p 'result = ' + gakuseki
+  # Show and Write results
+  p gakuseki
+  File.open('hoge.txt', 'a') do |io|
+    io.puts gakuseki
+  end
 
 end
