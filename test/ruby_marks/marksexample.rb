@@ -1,9 +1,11 @@
+$:.unshift File.dirname(__FILE__)
 require 'rubygems'
 require 'bundler/setup'
 require 'ruby_marks'
+require 'jpgcut.rb'
 
 # Instantiate the Recognizer
-@file = 'ss6.jpg'
+@file = 'rcrop1.jpg'
 @recognizer = RubyMarks::Recognizer.new
 
 # Configuring the document aspects
@@ -17,71 +19,52 @@ require 'ruby_marks'
   config.default_mark_width = 50
   config.default_distance_between_marks = 50
   config.default_marks_options = %w{0 1 2 3 4 5 6 7 8 9}
-  startx = 975
-  starty = 318
-  betweenx = 1488 - startx
-  betweeny = 378 - starty
+  startx = 56
+  starty = 0
+  betweenx = 596 - startx
+  betweeny = 63 - starty
 
   config.define_group :first  do |group|
-	group.expected_coordinates = {x1: startx , y1: starty, x2: startx + betweenx, y2: starty + betweeny * 1}
+      group.expected_coordinates = {x1: startx , y1: starty, x2: startx + betweenx, y2: starty + betweeny * 1}
   end
-
-  p 'no.1 ...'
 
   config.define_group :second  do |group|
-	group.expected_coordinates = {x1: startx , y1: starty + betweeny * 1, x2: startx + betweenx, y2: starty + betweeny * 2}
+      group.expected_coordinates = {x1: startx , y1: starty + betweeny * 1, x2: startx + betweenx, y2: starty + betweeny * 2}
   end
-
-  p 'no.2 ...'
 
   config.define_group :third  do |group|
- 	group.expected_coordinates = {x1: startx , y1: starty + betweeny * 2, x2: startx + betweenx, y2: starty + betweeny * 3}
+      group.expected_coordinates = {x1: startx , y1: starty + betweeny * 2, x2: startx + betweenx, y2: starty + betweeny * 3}
   end
-
-  p 'no.3 ...'
 
   config.define_group :forth  do |group|
-	group.expected_coordinates = {x1: startx , y1: starty + betweeny * 3, x2: startx + betweenx, y2: starty + betweeny * 4}
+      group.expected_coordinates = {x1: startx , y1: starty + betweeny * 3, x2: startx + betweenx, y2: starty + betweeny * 4}
   end
 
-  p 'no.4 ...'
-
- config.define_group :fifth  do |group|
-	group.expected_coordinates = {x1: startx , y1: starty + betweeny * 4, x2: startx + betweenx, y2: starty + betweeny * 5}
+  config.define_group :fifth  do |group|
+      group.expected_coordinates = {x1: startx , y1: starty + betweeny * 4, x2: startx + betweenx, y2: starty + betweeny * 5}
   end
 
-  p 'no.5 ...'
-
- config.define_group :sixth  do |group|
-	group.expected_coordinates = {x1: startx , y1: starty + betweeny * 5, x2: startx + betweenx, y2: starty + betweeny * 6}
+  config.define_group :sixth  do |group|
+      group.expected_coordinates = {x1: startx , y1: starty + betweeny * 5, x2: startx + betweenx, y2: starty + betweeny * 6}
   end
 
-  p 'no.6 ...'
-
- config.define_group :seventh  do |group|
-	group.expected_coordinates = {x1: startx , y1: starty + betweeny * 6, x2: startx + betweenx, y2: starty + betweeny * 7}
+  config.define_group :seventh  do |group|
+      group.expected_coordinates = {x1: startx , y1: starty + betweeny * 6, x2: startx + betweenx, y2: starty + betweeny * 7}
   end
 
-  p 'no.7 ...'
-
- config.define_group :eighth  do |group|
-	group.expected_coordinates = {x1: startx , y1: starty + betweeny * 7, x2: startx + betweenx, y2: starty + betweeny * 8}
+  config.define_group :eighth  do |group|
+      group.expected_coordinates = {x1: startx , y1: starty + betweeny * 7, x2: startx + betweenx, y2: starty + betweeny * 8}
   end
 
-  p 'no.8 ...'
-
- config.define_group :nineth  do |group|
-	group.expected_coordinates = {x1: startx , y1: starty + betweeny * 8, x2: startx + betweenx, y2: starty + betweeny * 9}
+  config.define_group :nineth  do |group|
+      group.expected_coordinates = {x1: startx , y1: starty + betweeny * 8, x2: startx + betweenx, y2: starty + betweeny * 9}
   end
-
-  p 'no.9 ...'
-
 end
 
 @recognizer.file = @file
 #
 flagged_recognizer = @recognizer.flag_all_marks
-flagged_recognizer.write("ss6(marks).jpg")
+flagged_recognizer.write("rcrop1(marks).jpg")
 #
 
 result = @recognizer.scan
