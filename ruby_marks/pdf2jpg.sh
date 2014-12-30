@@ -15,5 +15,5 @@ gs \
 -dMaxStripSize=8192 \
 -sDEVICE=jpeg \
 -r600 \
--sOutputFile=jpg/${OUTFILE}-%d.jpg \
+-sOutputFile=rsc/${OUTFILE}-%d.jpg \
 ${TARGET}
