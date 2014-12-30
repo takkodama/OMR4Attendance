@@ -5,7 +5,7 @@ require 'ruby_marks'
 require 'jpgcut.rb'
 
 # Instantiate the Recognizer
-@file = 'rcrop1.jpg'
+@file = 'stu_id1.jpg'
 @recognizer = RubyMarks::Recognizer.new
 
 # Configuring the document aspects
@@ -64,7 +64,8 @@ end
 @recognizer.file = @file
 #
 flagged_recognizer = @recognizer.flag_all_marks
-flagged_recognizer.write("rcrop1(marks).jpg")
+flagged_recognizer.write("stu_id1(marks).jpg")
+flagged_recognizer.destroy!
 #
 
 result = @recognizer.scan
@@ -82,3 +83,4 @@ result.each do |k, v|
 end
 
 p 'result = ' + gakuseki
+File.write("hoge.txt", gakuseki)
