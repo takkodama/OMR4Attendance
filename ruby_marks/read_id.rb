@@ -5,7 +5,7 @@ require 'ruby_marks'
 require 'jpgcut.rb'
 
 # Instantiate the Recognizer
-@file = 'stu_id1.jpg'
+@file = './stu_id/stu_id1.jpg'
 @recognizer = RubyMarks::Recognizer.new
 
 # Configuring the document aspects
@@ -64,7 +64,7 @@ end
 @recognizer.file = @file
 #
 flagged_recognizer = @recognizer.flag_all_marks
-flagged_recognizer.write("stu_id1(marks).jpg")
+flagged_recognizer.write("./marked/stu_id1.jpg")
 flagged_recognizer.destroy!
 #
 
