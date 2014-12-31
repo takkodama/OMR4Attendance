@@ -5,6 +5,7 @@ require 'ruby_marks'
 require 'cut_jpg'
 require 'settings'
 require 'write_csv'
+require 'com2pdf'
 
 #class ReadJpg
     n = 0
@@ -43,6 +44,9 @@ require 'write_csv'
     end
 
     csv = WriteCSV.new
-    csv.write('results.csv', results)
+    csv.write('GS1224results.csv', results)
+
+    pdf = Com2Pdf.new
+    pdf.write('GS1224comments.pdf')
 #end
 

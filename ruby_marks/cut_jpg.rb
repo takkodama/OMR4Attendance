@@ -4,20 +4,20 @@ require 'RMagick'
 
 class CutJpg
 
-	id_startx = 2750
-	id_starty = 1050
-	id_endx = 4400
-	id_endy = 2630
+	id_startx = 2750 + 60
+	id_starty = 1050 - 220
+	id_endx = 4400 + 60
+	id_endy = 2630 - 220
 
-	key_startx = 500
-	key_starty = 2930
-	key_endx = 4615
-	key_endy = 4400
+	key_startx = 500 + 60
+	key_starty = 2930 - 180
+	key_endx = 4615 + 150
+	key_endy = 4400 - 150
 
-	com_startx = 500
-	com_starty = 4730
-	com_endx = 4615
-	com_endy = 5700
+	com_startx = 500 + 60
+	com_starty = 4730 - 150
+	com_endx = 4615 + 150
+	com_endy = 5700 - 150
 
 	n = 0
 
@@ -48,7 +48,4 @@ class CutJpg
 		com.write('./03 com/' + filename + '-com.jpg')
 		com.destroy!
 	end # imageFiles.each
-
-	p "Files are wroten!"
-
 end
