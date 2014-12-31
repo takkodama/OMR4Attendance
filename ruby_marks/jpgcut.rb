@@ -1,7 +1,6 @@
 $:.unshift File.dirname(__FILE__)
 require 'rubygems'
 require 'RMagick'
-require "find"
 
 id_startx = 2750
 id_starty = 1050
@@ -18,7 +17,6 @@ com_starty = 4730
 com_endx = 4615
 com_endy = 5700
 
-imageFiles = []
 n = 0
 
 #Add all files in rsc folder to imageFiles list
@@ -48,13 +46,5 @@ imageFiles.each do |filepath|
 	com.write('./03 com/' + filename + '-com.jpg')
 	com.destroy!
 end # imageFiles.each
-
-=begin
-img = Magick::Image.read('./jpg/sample-1.jpg'){self.density = 144}.first
-croped_img = img.crop(startx, starty, endx - startx, endy - starty)
-stu_id = croped_img.resize(600, 564)
-stu_id.write('stu_id1.jpg')
-stu_id.destroy!
-=end
 
 p "Files are wroten!"
