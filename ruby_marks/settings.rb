@@ -6,16 +6,16 @@
   config.threshold_level = 50
   config.edge_level = 3
   config.default_expected_lines = 1
-  config.default_block_width_tolerance = 50
-  config.default_block_height_tolerance = 50
-  config.default_mark_height = 45
-  config.default_mark_width = 45
-  config.default_distance_between_marks = 50
+  config.default_block_width_tolerance = 25
+  config.default_block_height_tolerance = 25
+  config.default_mark_height = 23
+  config.default_mark_width = 23
+  config.default_distance_between_marks = 25
   config.default_marks_options = %w{0 1 2 3 4 5 6 7 8 9}
-  startx = 60
-  endx = 580
-  starty = 10
-  betweeny = 60
+  startx = 30
+  endx = 290
+  starty = 5
+  betweeny = 30
 
   config.define_group :first  do |group|
       group.expected_coordinates = {x1: startx , y1: starty, x2: endx, y2: starty + betweeny * 1}

@@ -33,7 +33,7 @@ imageFiles.each do |jpg|
 	img.read(jpg){self.density = 144}.first
 	stu_id = img.crop(id_startx, id_starty, id_endx - id_startx, id_endy - id_starty)
 	#stu_id.write('./stu_id/stu_id_origin' + n.to_s + '.jpg')
-	resized_stu_id = stu_id.resize(600, 565)
+	resized_stu_id = stu_id.resize(300, 283)
 	resized_stu_id.write('./stu_id/stu_id' + n.to_s + '.jpg')
 	stu_id.destroy!
 	resized_stu_id.destroy!
