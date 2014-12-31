@@ -13,6 +13,8 @@ Dir::glob('./stu_id/*.jpg').each {|f|
   imageFiles.push(f)
 }
 
+p imageFiles
+
 imageFiles.each do |jpg|
 
   # Instantiate the Recognizer
