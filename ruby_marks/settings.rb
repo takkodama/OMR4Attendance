@@ -12,8 +12,8 @@
   config.default_mark_width = 23
   config.default_distance_between_marks = 25
   config.default_marks_options = %w{0 1 2 3 4 5 6 7 8 9}
-  startx = 30
-  endx = 290
+  startx = 35
+  endx = 285
   starty = 5
   betweeny = 30
 

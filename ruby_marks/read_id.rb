@@ -9,22 +9,20 @@ imageFiles = []
 n = 0
 
 #Add all files in stu_id folder to imageFiles list
-Dir::glob('./stu_id/*.jpg').each {|f|
-  imageFiles.push(f)
-}
-
+imageFiles = Dir::glob("./01 id/*.jpg")
 p imageFiles
 
-imageFiles.each do |jpg|
+imageFiles.each do |filepath|
 
   # Instantiate the Recognizer
-  @recognizer.file = jpg
+  @recognizer.file = filepath
   gakuseki = ""
   n += 1
+  filename = filepath[/(\w+)\W+(\w+).jpg/, 1]
 
   # To check reading marks correctly
   flagged_recognizer = @recognizer.flag_all_marks
-  flagged_recognizer.write('./marked/stu_id' + n.to_s + '.jpg')
+  flagged_recognizer.write('./04 marked/' + filename + '-marked.jpg')
   flagged_recognizer.destroy!
 
   # Put characters
@@ -41,7 +39,7 @@ imageFiles.each do |jpg|
   # Show and Write results
   p gakuseki
   File.open('hoge.txt', 'a') do |io|
-    io.puts gakuseki
+    io.puts sprintf('%03d %s', n, gakuseki)
   end
 
 end

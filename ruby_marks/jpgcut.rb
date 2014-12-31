@@ -1,9 +1,10 @@
 $:.unshift File.dirname(__FILE__)
 require 'rubygems'
 require 'RMagick'
+require "find"
 
 id_startx = 2750
-id_starty = 1075
+id_starty = 1050
 id_endx = 4400
 id_endy = 2630
 
@@ -21,29 +22,30 @@ imageFiles = []
 n = 0
 
 #Add all files in rsc folder to imageFiles list
-Dir::glob("./rsc/*.jpg").each {|f|
-	imageFiles.push(f)
-}
+imageFiles = Dir::glob("./00 src/*.jpg")
 
 p imageFiles
 
 img = Magick::ImageList.new
-imageFiles.each do |jpg|
+imageFiles.each do |filepath|
 	n += 1
-	img.read(jpg){self.density = 144}.first
-	stu_id = img.crop(id_startx, id_starty, id_endx - id_startx, id_endy - id_starty)
-	#stu_id.write('./stu_id/stu_id_origin' + n.to_s + '.jpg')
-	resized_stu_id = stu_id.resize(300, 283)
-	resized_stu_id.write('./stu_id/stu_id' + n.to_s + '.jpg')
-	stu_id.destroy!
-	resized_stu_id.destroy!
+	filename = filepath[/(\w+)\W+(\w+).jpg/, 2]
+
+	img.read(filepath){self.density = 144}.first
+	id = img.crop(id_startx, id_starty, id_endx - id_startx, id_endy - id_starty)
+	#id.write('./01 id/' + filename + '-id(origin).jpg')
+
+	resized_id = id.resize(300, 287)
+	resized_id.write('./01 id/' + filename + '-id.jpg')
+	id.destroy!
+	resized_id.destroy!
 
 	key = img.crop(key_startx, key_starty, key_endx - key_startx, key_endy - key_starty)
-	key.write('./key/key' + n.to_s + '.jpg')
+	key.write('./02 key/' + filename + '-key.jpg')
 	key.destroy!
 
 	com = img.crop(com_startx, com_starty, com_endx - com_startx, com_endy - com_starty)
-	com.write('./com/com' + n.to_s + '.jpg')
+	com.write('./03 com/' + filename + '-com.jpg')
 	com.destroy!
 end # imageFiles.each
 
