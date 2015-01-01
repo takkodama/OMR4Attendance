@@ -7,7 +7,7 @@ class Com2Pdf
 		imageFiles = Dir::glob(jpgs)
 
 		Prawn::Document.generate(pdf) do
-		  text "-[Global South Lecture]- " + pdf
+		  text "-[Global South Lecture]- " + pdf[/(\w+).pdf/, 1]
 		  imageFiles.each do |filepath|
 		    image(filepath,
 		          :fit => [bounds.absolute_right - bounds.absolute_left,

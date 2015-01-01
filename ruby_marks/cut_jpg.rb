@@ -3,47 +3,18 @@ require 'rubygems'
 require 'RMagick'
 
 class CutJpg
+	def resizecutting(img, filename, dirname, x1, y1, x2, y2, rx, ry)
+		cut = img.crop(x1, y1, x2 - x1, y2 - y1)
+		cut_resized = cut.resize(rx, ry)
+		cut_resized.write('./' + dirname + '/' + filename + '.jpg')
+		cut.destroy!
+		cut_resized.destroy!
+	end
 
-	id_startx = 2750 + 60
-	id_starty = 1050 - 220
-	id_endx = 4400 + 60
-	id_endy = 2630 - 220
+	def cutting(img, filename, dirname, x1, y1, x2, y2)
+		cut = img.crop(x1, y1, x2 - x1, y2 - y1)
+		cut.write('./' + dirname + '/' + filename + '.jpg')
+		cut.destroy!
+	end
 
-	key_startx = 500 + 60
-	key_starty = 2930 - 180
-	key_endx = 4615 + 150
-	key_endy = 4400 - 150
-
-	com_startx = 500 + 60
-	com_starty = 4730 - 150
-	com_endx = 4615 + 150
-	com_endy = 5700 - 150
-
-	#Add all files in rsc folder to imageFiles list
-	imageFiles = Dir::glob("./00 src/*.jpg")
-	p imageFiles
-
-	n = 0
-	img = Magick::ImageList.new
-	imageFiles.each do |filepath|
-		n += 1
-		filename = filepath[/(\w+)\W+(\w+).jpg/, 2]
-
-		img.read(filepath){self.density = 144}.first
-		id = img.crop(id_startx, id_starty, id_endx - id_startx, id_endy - id_starty)
-		#id.write('./01 id/' + filename + '-id(origin).jpg')
-
-		resized_id = id.resize(300, 287)
-		resized_id.write('./01 id/' + filename + '-id.jpg')
-		id.destroy!
-		resized_id.destroy!
-
-		key = img.crop(key_startx, key_starty, key_endx - key_startx, key_endy - key_starty)
-		key.write('./02 key/' + filename + '-key.jpg')
-		key.destroy!
-
-		com = img.crop(com_startx, com_starty, com_endx - com_startx, com_endy - com_starty)
-		com.write('./03 com/' + filename + '-com.jpg')
-		com.destroy!
-	end # imageFiles.each
 end
