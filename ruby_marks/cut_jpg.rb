@@ -19,13 +19,11 @@ class CutJpg
 	com_endx = 4615 + 150
 	com_endy = 5700 - 150
 
-	n = 0
-
 	#Add all files in rsc folder to imageFiles list
 	imageFiles = Dir::glob("./00 src/*.jpg")
-
 	p imageFiles
 
+	n = 0
 	img = Magick::ImageList.new
 	imageFiles.each do |filepath|
 		n += 1

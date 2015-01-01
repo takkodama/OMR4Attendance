@@ -10,12 +10,12 @@ require 'com2pdf'
 #class ReadJpg
     n = 0
     results = []
+    filename = ""
 
     #Add all files in stu_id folder to imageFiles list
     imageFiles = Dir::glob("./01 id/*.jpg")
 
     imageFiles.each do |filepath|
-
       # Instantiate the Recognizer
       @recognizer.file = filepath
       id = ""
@@ -44,9 +44,11 @@ require 'com2pdf'
     end
 
     csv = WriteCSV.new
-    csv.write('GS1224results.csv', results)
+    csv.write('./10 output/results.csv', results)
 
     pdf = Com2Pdf.new
-    pdf.write('GS1224comments.pdf')
+    pdf.write('./10 output/keywords.pdf', "./02 key/*.jpg")
+    pdf.write('./10 output/comments.pdf', "./03 com/*.jpg")
+
 #end
 

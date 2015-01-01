@@ -1,6 +1,6 @@
 #class Settings
+#  def hoge()
     @recognizer = RubyMarks::Recognizer.new
-
     # Configuring the document aspects
     @recognizer.configure do |config|
       config.threshold_level = 50
@@ -53,4 +53,5 @@
           group.expected_coordinates = {x1: startx , y1: starty + betweeny * 8, x2: endx, y2: starty + betweeny * 9}
       end
     end
+#  end
 #end

@@ -3,11 +3,11 @@ require 'rubygems'
 require 'prawn'
 
 class Com2Pdf
-	def write(filename)
-		imageFiles = Dir::glob("./03 com/*.jpg")
+	def write(pdf, jpgs)
+		imageFiles = Dir::glob(jpgs)
 
-		Prawn::Document.generate(filename) do
-		  text "-[Global South Lecture] Comments from Students-"
+		Prawn::Document.generate(pdf) do
+		  text "-[Global South Lecture]- " + pdf
 		  imageFiles.each do |filepath|
 		    image(filepath,
 		          :fit => [bounds.absolute_right - bounds.absolute_left,

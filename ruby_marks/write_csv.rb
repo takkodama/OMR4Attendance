@@ -1,6 +1,5 @@
 require 'csv'
 # Write results to CSV file
-
 class WriteCSV
 	def write(filename, results)
 	  CSV.open(filename,"wb") do |csv|
