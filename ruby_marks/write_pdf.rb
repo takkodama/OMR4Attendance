@@ -2,7 +2,7 @@
 require 'rubygems'
 require 'prawn'
 
-class Com2Pdf
+class WritePdf
 	def write(pdf, jpgs)
 		imageFiles = Dir::glob(jpgs)
 

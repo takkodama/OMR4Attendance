@@ -14,8 +14,8 @@ m = 0
 
 @recognizer = RubyMarks::Recognizer.new
 
-hoge = Conf.new
-hoge.OMRsettings(@recognizer)
+conf = Conf.new
+conf.OMRsettings(@recognizer)
 
 #1 CUT
 imageFiles_src = Dir::glob("./00 src/*.jpg")
@@ -67,7 +67,7 @@ end
 csv = WriteCSV.new
 csv.write('./10 output/results.csv', results)
 
-pdf = Com2Pdf.new
+pdf = WritePDF.new
 pdf.write('./10 output/keywords.pdf', "./02 key/*.jpg")
 pdf.write('./10 output/comments.pdf', "./03 com/*.jpg")
 

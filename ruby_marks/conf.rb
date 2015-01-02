@@ -1,7 +1,6 @@
 class Conf
-  def OMRsettings(hoge)
-
-    @recognizer = hoge
+  def OMRsettings(recognizer)
+    @recognizer = recognizer
     # Configuring the document aspects
     @recognizer.configure do |config|
       config.threshold_level = 50
