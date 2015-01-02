@@ -3,14 +3,19 @@ require 'rubygems'
 require 'bundler/setup'
 require 'ruby_marks'
 require 'cut_jpg'
-require 'conf'
 require 'write_csv'
 require 'com2pdf'
+require 'conf'
 
 results = []
 filename = []
 n = 0
 m = 0
+
+@recognizer = RubyMarks::Recognizer.new
+
+hoge = Conf.new
+hoge.OMRsettings(@recognizer)
 
 #1 CUT
 imageFiles_src = Dir::glob("./00 src/*.jpg")
