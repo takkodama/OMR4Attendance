@@ -1,21 +1,27 @@
+$:.unshift File.dirname(__FILE__)
+require 'rubygems'
+require 'ruby_marks'
+
 class Conf
-  def OMRsettings(recognizer)
+
+  attr_reader :recognizer
+
+  def initialize(recognizer)
     @recognizer = recognizer
+  end
+
+  def OMRsettings(tolerance, size, startx, endx, starty, betweeny)
     # Configuring the document aspects
     @recognizer.configure do |config|
       config.threshold_level = 50
       config.edge_level = 3
       config.default_expected_lines = 1
-      config.default_block_width_tolerance = 25
-      config.default_block_height_tolerance = 25
-      config.default_mark_height = 23
-      config.default_mark_width = 23
-      config.default_distance_between_marks = 23
+      config.default_block_width_tolerance = tolerance
+      config.default_block_height_tolerance = tolerance
+      config.default_mark_height = size
+      config.default_mark_width = size
+      config.default_distance_between_marks = size
       config.default_marks_options = %w{0 1 2 3 4 5 6 7 8 9}
-      startx = 35
-      endx = 290
-      starty = 5
-      betweeny = 30
 
       config.define_group :first  do |group|
           group.expected_coordinates = {x1: startx , y1: starty, x2: endx, y2: starty + betweeny * 1}

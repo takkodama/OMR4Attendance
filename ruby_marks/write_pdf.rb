@@ -1,8 +1,8 @@
-#!/usr/bin/env ruby
+$:.unshift File.dirname(__FILE__)
 require 'rubygems'
 require 'prawn'
 
-class WritePdf
+class WritePDF
 	def write(pdf, jpgs)
 		imageFiles = Dir::glob(jpgs)
 
