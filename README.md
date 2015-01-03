@@ -6,8 +6,7 @@
 
 - 面倒な授業の出席集計を、出席シート+OMRにより全自動で行うことが可能
 
-![](ht
-tps://raw.githubusercontent.com/shartsu/OMR4Attendance/master/READMEimg/s1.png)
+![](https://raw.githubusercontent.com/shartsu/OMR4Attendance/master/READMEimg/s1.png)
 
 - 出席シート(A4,Texファイル)を編集することにより、学生からの感想や簡単な課題を提示することも可能
  * サンプルでは、『授業のキーワード3つ』『授業の感想』を書かせた
