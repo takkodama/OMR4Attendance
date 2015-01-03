@@ -19,8 +19,7 @@ outputdir = '10 output'
 #0 CONFIG
 @recognizer = RubyMarks::Recognizer.new
 conf = Conf.new(@recognizer)
-#OMRsettings(tolerance, size, startx, endx, starty, betweeny)
-conf.OMRsettings(25, 23, 35, 290, 5, 30)
+conf.OMRsettings(25, 23, 35, 290, 5, 30) #OMRsettings(tolerance, size, startx, endx, starty, betweeny)
 
 #1 CUT Files
 imageFiles_src = Dir::glob("./#{sourcedir}/*.jpg")

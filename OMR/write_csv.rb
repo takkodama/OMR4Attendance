@@ -1,3 +1,4 @@
+$:.unshift File.dirname(__FILE__)
 require 'csv'
 # Write results to CSV file
 class WriteCSV
