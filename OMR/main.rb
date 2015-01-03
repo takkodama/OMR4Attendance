@@ -16,12 +16,7 @@ markdir = '01 id'
 markeddir = '04 marked'
 outputdir = '10 output'
 
-#0 CONFIG
-@recognizer = RubyMarks::Recognizer.new
-conf = Conf.new(@recognizer)
-conf.OMRsettings(25, 23, 35, 290, 5, 30) #OMRsettings(tolerance, size, startx, endx, starty, betweeny)
-
-#1 CUT Files
+#0 CUT Files
 imageFiles_src = Dir::glob("./#{sourcedir}/*.jpg")
 jpg = CutJpg.new
 img = Magick::ImageList.new
@@ -30,12 +25,20 @@ imageFiles_src.each do |filepath|
   filelist.push(filepath[/(\w+).jpg/, 1])
   img.read(filepath){self.density = 144}.first
 
-  jpg.resizecutting(img, filelist[n], markdir, 2810, 830, 4500, 2410, 300, 287)
-  jpg.cutting(img, filelist[n], '02 key', 0, 2750, 4962, 4250)
-  jpg.cutting(img, filelist[n], '03 com', 0, 4580, 4962, 5550)
+  # Marksheet Area
+  jpg.resizecutting(img, filelist[n], markdir, 2700, 1060, 4370, 2640, 300, 284) #startx, starty, endx, endy, resizedx, resizedy
+  # Comment Area
+  jpg.cutting(img, filelist[n], '02 key', 0, 2950, 5100, 4450) #sx, sy, ex, ey
+  jpg.cutting(img, filelist[n], '03 com', 0, 4750, 5100, 5750)
   n += 1
 end
 #p filelist
+
+#1 SET OMRCONFIG
+@recognizer = RubyMarks::Recognizer.new
+conf = Conf.new(@recognizer)
+#conf.OMRsettings(25, 23, 35, 290, 5, 30) #OMRsettings(tolerance, size, startx, endx, starty, betweeny)
+conf.OMRsettings(25, 23, 30, 284, 5, 30) #OMRsettings(tolerance, size, startx, endx, starty, betweeny)
 
 #2 READ Marks
 marks = ReadMarks.new(@recognizer)

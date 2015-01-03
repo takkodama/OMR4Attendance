@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.3-110825-2.4 (utf8.euc) (TeX Live 2012) (format=platex 2012.6.30)  2 JAN 2015 17:32
+This is e-pTeX, Version 3.1415926-p3.3-110825-2.4 (utf8.euc) (TeX Live 2012) (format=platex 2012.6.30)  3 JAN 2015 17:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -430,7 +430,7 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
 (/usr/local/texlive/2012/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen182
 )
-No file sample.aux.
+(./sample.aux)
 \openout1 = `sample.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -449,7 +449,7 @@ LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
-ABD: EveryShipout initializing macros
+ ABD: EveryShipout initializing macros
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 13.83836pt on input line 12.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
@@ -1048,8 +1048,8 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 9653 strings out of 494059
- 182696 string characters out of 3156205
+ 9655 strings out of 494059
+ 182718 string characters out of 3156205
  245313 words of memory out of 3000000
  12909 multiletter control sequences out of 15000+200000
  14288 words of font info for 62 fonts, out of 3000000 for 9000
