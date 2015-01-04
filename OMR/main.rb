@@ -33,7 +33,7 @@ imageFiles_src.each do |filepath|
   jpg.resizecutting(img, filelist[n], markdir, startx, starty, endx, endy, 300, 284) #300=resizedx, 284=resizedy
   # Comment Area
   jpg.cutting(img, filelist[n], '02 key', 0, 2950, 5100, 4450) #sx, sy, ex, ey
-  jpg.cutting(img, filelist[n], '03 com', 0, 4750, 5100, 5750)
+  jpg.cutting(img, filelist[n], '03 com', 0, 4750, 5100, 5750) #sx, sy, ex, ey
   n += 1
 end
 #p filelist
