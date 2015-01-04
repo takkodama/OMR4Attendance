@@ -30,7 +30,7 @@ imageFiles_src.each do |filepath|
   img.read(filepath){self.density = 144}.first
 
   # Marksheet Area
-  jpg.resizecutting(img, filelist[n], markdir, startx, starty, endx, endy, 300, 284) #startx, starty, endx, endy, resizedx, resizedy
+  jpg.resizecutting(img, filelist[n], markdir, startx, starty, endx, endy, 300, 284) #300=resizedx, 284=resizedy
   # Comment Area
   jpg.cutting(img, filelist[n], '02 key', 0, 2950, 5100, 4450) #sx, sy, ex, ey
   jpg.cutting(img, filelist[n], '03 com', 0, 4750, 5100, 5750)
