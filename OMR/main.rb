@@ -15,6 +15,10 @@ sourcedir = '00 src'
 markdir = '01 id'
 markeddir = '04 marked'
 outputdir = '10 output'
+startx = ARGV[0].to_i #sample: 2700
+starty = ARGV[1].to_i #sample: 1060
+endx = ARGV[2].to_i #sample: 4370
+endy = ARGV[3].to_i #sample: 2640
 
 #0 CUT Files
 imageFiles_src = Dir::glob("./#{sourcedir}/*.jpg")
@@ -26,7 +30,7 @@ imageFiles_src.each do |filepath|
   img.read(filepath){self.density = 144}.first
 
   # Marksheet Area
-  jpg.resizecutting(img, filelist[n], markdir, 2700, 1060, 4370, 2640, 300, 284) #startx, starty, endx, endy, resizedx, resizedy
+  jpg.resizecutting(img, filelist[n], markdir, startx, starty, endx, endy, 300, 284) #startx, starty, endx, endy, resizedx, resizedy
   # Comment Area
   jpg.cutting(img, filelist[n], '02 key', 0, 2950, 5100, 4450) #sx, sy, ex, ey
   jpg.cutting(img, filelist[n], '03 com', 0, 4750, 5100, 5750)
