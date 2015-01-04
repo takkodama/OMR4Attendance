@@ -41,7 +41,6 @@ end
 #1 SET OMRCONFIG
 @recognizer = RubyMarks::Recognizer.new
 conf = Conf.new(@recognizer)
-#conf.OMRsettings(25, 23, 35, 290, 5, 30) #OMRsettings(tolerance, size, startx, endx, starty, betweeny)
 conf.OMRsettings(25, 23, 30, 284, 5, 30) #OMRsettings(tolerance, size, startx, endx, starty, betweeny)
 
 #2 READ Marks
