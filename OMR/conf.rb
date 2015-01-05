@@ -23,38 +23,47 @@ class Conf
       config.default_distance_between_marks = size
       config.default_marks_options = %w{0 1 2 3 4 5 6 7 8 9}
 
+      #row 1
       config.define_group :first  do |group|
           group.expected_coordinates = {x1: startx , y1: starty, x2: endx, y2: starty + betweeny * 1}
       end
 
+      #row 2
       config.define_group :second  do |group|
           group.expected_coordinates = {x1: startx , y1: starty + betweeny * 1, x2: endx, y2: starty + betweeny * 2}
       end
 
+      #row 3
       config.define_group :third  do |group|
           group.expected_coordinates = {x1: startx , y1: starty + betweeny * 2, x2: endx, y2: starty + betweeny * 3}
       end
 
+      #row 4
       config.define_group :forth  do |group|
           group.expected_coordinates = {x1: startx , y1: starty + betweeny * 3, x2: endx, y2: starty + betweeny * 4}
       end
 
+      #row 5
       config.define_group :fifth  do |group|
           group.expected_coordinates = {x1: startx , y1: starty + betweeny * 4, x2: endx, y2: starty + betweeny * 5}
       end
 
+      #row 6
       config.define_group :sixth  do |group|
           group.expected_coordinates = {x1: startx , y1: starty + betweeny * 5, x2: endx, y2: starty + betweeny * 6}
       end
 
+      #row 7
       config.define_group :seventh  do |group|
           group.expected_coordinates = {x1: startx , y1: starty + betweeny * 6, x2: endx, y2: starty + betweeny * 7}
       end
 
+      #row 8
       config.define_group :eighth  do |group|
           group.expected_coordinates = {x1: startx , y1: starty + betweeny * 7, x2: endx, y2: starty + betweeny * 8}
       end
 
+      #row 9
       config.define_group :nineth  do |group|
           group.expected_coordinates = {x1: startx , y1: starty + betweeny * 8, x2: endx, y2: starty + betweeny * 9}
       end
