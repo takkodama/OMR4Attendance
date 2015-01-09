@@ -1,3 +1,5 @@
+#encoding: UTF-8
+
 $:.unshift File.dirname(__FILE__)
 require 'rubygems'
 require 'bundler/setup'
@@ -22,7 +24,7 @@ endy = ARGV[3].to_i #sample: 2640
 
 #0 CUT Files
 imageFiles_src = Dir::glob("./#{sourcedir}/*.jpg")
-jpg = CutJpg.new
+jpg = CutJpg::new
 img = Magick::ImageList.new
 
 imageFiles_src.each do |filepath|
@@ -40,18 +42,18 @@ end
 
 #1 SET OMRCONFIG
 @recognizer = RubyMarks::Recognizer.new
-conf = Conf.new(@recognizer)
+conf = Conf::new(@recognizer)
 conf.OMRsettings(25, 23, 30, 284, 5, 30) #OMRsettings(tolerance, size, startx, endx, starty, betweeny)
 
 #2 READ Marks
-marks = ReadMarks.new(@recognizer)
+marks = ReadMarks::new(@recognizer)
 marks.read(markdir, markeddir, filelist, results)
 
 #3 WRITE Results
-csv = WriteCSV.new
+csv = WriteCSV::new
 csv.write("./#{outputdir}/results.csv", results)
 
-pdf = WritePDF.new
+pdf = WritePDF::new
 pdf.write("./#{outputdir}/keywords.pdf", "./02 key/*.jpg")
 pdf.write("./#{outputdir}/comments.pdf", "./03 com/*.jpg")
 
