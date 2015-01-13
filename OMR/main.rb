@@ -21,9 +21,10 @@ startx = ARGV[0].to_i #sample: 2700
 starty = ARGV[1].to_i #sample: 1060
 endx = ARGV[2].to_i #sample: 4370
 endy = ARGV[3].to_i #sample: 2640
+name = ARGV[4]
 
 #0 CUT Files
-imageFiles_src = Dir::glob("./#{sourcedir}/*.jpg")
+imageFiles_src = Dir::glob("./#{sourcedir}/#{name}*.jpg")
 jpg = CutJpg::new
 img = Magick::ImageList.new
 
@@ -34,8 +35,8 @@ imageFiles_src.each do |filepath|
   # Marksheet Area
   jpg.resizecutting(img, filelist[n], markdir, startx, starty, endx, endy, 300, 284) #300=resizedx, 284=resizedy
   # Comment Area
-  jpg.cutting(img, filelist[n], '02 key', 0, 2950, img.columns, 4450) #sx, sy, ex, ey
-  jpg.cutting(img, filelist[n], '03 com', 0, 4750, img.columns, 5750) #sx, sy, ex, ey
+  jpg.cutting(img, filelist[n], '02 key', 0, 2880, img.columns, 4400) #sx, sy, ex, ey
+  jpg.cutting(img, filelist[n], '03 com', 0, 4680, img.columns, 5680) #sx, sy, ex, ey
   n += 1
 end
 #p filelist
@@ -51,9 +52,9 @@ marks.read(markdir, markeddir, filelist, results)
 
 #3 WRITE Results
 csv = WriteCSV::new
-csv.write("./#{outputdir}/results.csv", results)
+csv.write("./#{outputdir}/#{name}results.csv", results)
 
 pdf = WritePDF::new
-pdf.write("./#{outputdir}/keywords.pdf", "./02 key/*.jpg")
-pdf.write("./#{outputdir}/comments.pdf", "./03 com/*.jpg")
+pdf.write("./#{outputdir}/#{name}keywords.pdf", "./02 key/*.jpg")
+pdf.write("./#{outputdir}/#{name}comments.pdf", "./03 com/*.jpg")
 
