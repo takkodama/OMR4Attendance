@@ -10,9 +10,9 @@ class ReadMarks
     @recognizer = recognizer
   end
 
-  def read(markdir, markeddir, filename, results)
+  def read(thumb, markdir, markeddir, filelist, results)
   	m = 0
-	imageFiles_id = Dir::glob("./#{markdir}/*.jpg")
+	imageFiles_id = Dir::glob("./#{markdir}/#{thumb}*.jpg")
 
 	imageFiles_id.each do |filepath|
 	  # Instantiate the Recognizer
@@ -20,7 +20,7 @@ class ReadMarks
 	  id = ""
 	  # To check reading marks correctly
 	  flagged_recognizer = @recognizer.flag_all_marks
-  	  flagged_recognizer.write("./#{markeddir}/" + filename[m] + ".jpg")
+  	  flagged_recognizer.write("./#{markeddir}/" + filelist[m] + ".jpg")
 	  flagged_recognizer.destroy!
 	  m += 1
 

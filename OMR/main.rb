@@ -17,14 +17,15 @@ sourcedir = '00 src'
 markdir = '01 id'
 markeddir = '04 marked'
 outputdir = '10 output'
-startx = ARGV[0].to_i #sample: 2700
-starty = ARGV[1].to_i #sample: 1060
-endx = ARGV[2].to_i #sample: 4370
-endy = ARGV[3].to_i #sample: 2640
-name = ARGV[4]
+thumb = ARGV[0] #jpg thumb thumb: SAMPLE
+startx = ARGV[1].to_i #sample: 2700
+starty = ARGV[2].to_i #sample: 1060
+endx = ARGV[3].to_i #sample: 4370
+endy = ARGV[4].to_i #sample: 2640
+
 
 #0 CUT Files
-imageFiles_src = Dir::glob("./#{sourcedir}/#{name}*.jpg")
+imageFiles_src = Dir::glob("./#{sourcedir}/#{thumb}*.jpg")
 jpg = CutJpg::new
 img = Magick::ImageList.new
 
@@ -48,13 +49,13 @@ conf.OMRsettings(25, 23, 30, 284, 5, 30) #OMRsettings(tolerance, size, startx, e
 
 #2 READ Marks
 marks = ReadMarks::new(@recognizer)
-marks.read(markdir, markeddir, filelist, results)
+marks.read(thumb, markdir, markeddir, filelist, results)
 
 #3 WRITE Results
 csv = WriteCSV::new
-csv.write("./#{outputdir}/#{name}results.csv", results)
+csv.write("./#{outputdir}/#{thumb}results.csv", results)
 
 pdf = WritePDF::new
-pdf.write("./#{outputdir}/#{name}keywords.pdf", "./02 key/*.jpg")
-pdf.write("./#{outputdir}/#{name}comments.pdf", "./03 com/*.jpg")
+pdf.write("./#{outputdir}/#{thumb}keywords.pdf", "./02 key/*.jpg")
+pdf.write("./#{outputdir}/#{thumb}comments.pdf", "./03 com/*.jpg")
 
