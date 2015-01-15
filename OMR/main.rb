@@ -17,12 +17,11 @@ sourcedir = '00 src'
 markdir = '01 id'
 markeddir = '04 marked'
 outputdir = '10 output'
-thumb = ARGV[0] #jpg thumb thumb: SAMPLE
+thumb = ARGV[0] #jpg thumb name: SAMPLE
 startx = ARGV[1].to_i #sample: 2700
 starty = ARGV[2].to_i #sample: 1060
 endx = ARGV[3].to_i #sample: 4370
 endy = ARGV[4].to_i #sample: 2640
-
 
 #0 CUT Files
 imageFiles_src = Dir::glob("./#{sourcedir}/#{thumb}*.jpg")
