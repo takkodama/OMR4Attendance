@@ -36,8 +36,8 @@ imageFiles_src.each do |filepath|
   # Marksheet Area
   jpg.resizecutting(img, filelist[n], markdir, startx, starty, endx, endy, 300, 284) #300=resizedx, 284=resizedy
   # Comment Area
-  jpg.cutting(img, filelist[n], '02 key', 0, 2880, img.columns, 4400) #sx, sy, ex, ey
-  jpg.cutting(img, filelist[n], '03 com', 0, 4680, img.columns, 5680) #sx, sy, ex, ey
+  jpg.cutting(img, filelist[n], '02 key', 0, 2940, img.columns, 4450) #sx, sy, ex, ey
+  jpg.cutting(img, filelist[n], '03 com', 0, 4740, img.columns, 5710) #sx, sy, ex, ey
   n += 1
 end
 #p filelist
@@ -56,6 +56,6 @@ csv = WriteCSV::new
 csv.write("./#{outputdir}/#{thumb}results.csv", results)
 
 pdf = WritePDF::new
-pdf.write("./#{outputdir}/#{thumb}keywords.pdf", "./02 key/*.jpg")
-pdf.write("./#{outputdir}/#{thumb}comments.pdf", "./03 com/*.jpg")
+pdf.write("./#{outputdir}/#{thumb}keywords.pdf", "./02 key/#{thumb}*.jpg")
+pdf.write("./#{outputdir}/#{thumb}comments.pdf", "./03 com/#{thumb}*.jpg")
 
