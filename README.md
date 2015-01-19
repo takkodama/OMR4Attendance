@@ -57,6 +57,10 @@ pdf.write("./#{outputdir}/#{thumb}keywords.pdf", "./02 key/#{thumb}*.jpg")
 
 3. マークシート部のピクセルをコマンドライン引数に指定し、プログラム実行！
 
+  ![](https://raw.githubusercontent.com/shartsu/OMR4Attendance/master/READMEimg/s4.png)
+
+より、
+
  ```
 $ ruby main.rb [JPGの共通ファイル名] [マーク部の開始x地点] [開始y地点] [終了x地点] [終了y地点]
 ⇒(例) $ ruby main.rb SAMPLE 2700 1060 4370 2640
