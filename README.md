@@ -4,7 +4,7 @@
 
 ## Features
 
-- 面倒な授業の出欠集計を、出席シート+OMRにより全自動で行うことが可能
+- 面倒な授業の出欠集計を、出席シートPDF+OMR読み取りにより全自動で行うことが可能
 
 ![](https://raw.githubusercontent.com/shartsu/OMR4Attendance/master/READMEimg/s1.png)
 
@@ -24,7 +24,7 @@
 1. シェルスクリプト`pdf2jpg.sh` を実行し、出席PDFファイル(ex.`SAMPLE.pdf`)を読み込みjpgで分割保存
 
  ```
-$ ./pdf2jpg.sh [出席PDFファイルのパス] [JPGファイル名]
+$ ./pdf2jpg.sh [出席PDFファイルのパス] [JPGの共通ファイル名]
 ⇒(例) $ ./pdf2jpg.sh ./SAMPLE.pdf SAMPLE
 ```
 
@@ -43,34 +43,35 @@ $ ./pdf2jpg.sh [出席PDFファイルのパス] [JPGファイル名]
 
  ```ruby:main.rb
   # Comment Area
-  jpg.cutting(img, filelist[n], '02 key', 0, 2950, 5100, 4450) #sx, sy, ex, ey
+  jpg.cutting(img, filelist[n], '02 key', 0, 2950, img.columns, 4450) #sx, sy, ex, ey
  ```
  第3引数`'02 key'`はフォルダ名で、ここで指定したフォルダに切り取られた画像が格納されていきます。
 
  また、プログラム内下部で画像をpdfでまとめる処理も行っています。
 
  ```ruby:main.rb
-pdf = WritePDF.new
-pdf.write("./#{outputdir}/keywords.pdf", "./02 key/*.jpg")
+pdf = WritePDF::new
+pdf.write("./#{outputdir}/#{thumb}keywords.pdf", "./02 key/#{thumb}*.jpg")
  ```
-`#{outputdir}`はデフォルトで`10 output`フォルダにセットされているので、3でプログラム実行後当該フォルダでpdfを確認してみてください。
+`#{outputdir}`はデフォルトで`10 output`フォルダにセットされているので、3でプログラム実行後当該フォルダで生成済みのpdfを確認してみてください。
 
 3. マークシート部のピクセルをコマンドライン引数に指定し、プログラム実行！
 
  ```
-$ ruby main.rb 2700 1060 4370 2640
+$ ruby main.rb [JPGの共通ファイル名] [マーク部の開始x地点] [開始y地点] [終了x地点] [終了y地点]
+⇒(例) $ ruby main.rb SAMPLE 2700 1060 4370 2640
 ```
 
  上手く実行できれば以下のようにコマンドラインに結果が出てきます。
 
  ```
-$ ruby main.rb 2700 1060 4370 2640
-TKs-MBP:OMR TK$ ruby main.rb 2700 1060 4370 2640
+$ ruby main.rb SAMPLE 2700 1060 4370 2640
 001 206543210
 002 201420642
 003 209876542
 004 209999999
 005 204680246
+…
 ```
 これらの結果をまとめたCSVファイルも、2のカット画像たちと同様に`10 output`フォルダに保存されているはずなので、確認してみてください。
 
@@ -78,7 +79,7 @@ TKs-MBP:OMR TK$ ruby main.rb 2700 1060 4370 2640
 
  `04 marked`に保存された、読み取り結果のファイルを確認しつつ以下を調整してみてください。
 
- □ マークシート部の読み取り位置を広げてみる(Lv.★)
+ □ マークシート部の読み取り位置(開始x~終了y)を広げてみる(Lv.★)
 
  □ 画像の圧縮サイズを再検討する(Lv.★★)
 　ーデフォルトでは`300x284`に設定されていますが、読み取り位置を変更されたならば縦横比が元画像と一致させ、300ピクセル前後に再度設定してあげてください。
@@ -99,8 +100,8 @@ conf.OMRsettings(25, 23, 30, 284, 5, 30)
 
 ## Specifications
 
-当システムは筑波大学 グローバル人材育成教育プログラムが開設する[グローバルサウス講義Ⅰ(新興国経済論)](http://shakai.tsukuba.ac.jp/news/2014/09/-ghrd.html)で使用されているため、出席番号の仕様も筑波大学に準ずる**9桁**(20xxxxxxx)となっている。
-なお、もちろん桁数はTexファイルとプログラム内の読み取り位置を調整することで変更が可能。
+当システムは筑波大学 グローバル人材育成教育プログラムが開設する[グローバルサウス講義Ⅰ(新興国経済論)](http://shakai.tsukuba.ac.jp/news/2014/09/-ghrd.html)で使用されているため、出席番号の仕様も筑波大学に準ずる**9桁**(20xxxxxxx)となっています。
+なお、もちろん桁数はTexファイルとプログラム内の読み取り位置を調整することで変更が可能です。
 
 ## Environments
 
