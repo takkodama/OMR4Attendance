@@ -33,22 +33,22 @@ imageFiles_src.each do |filepath|
   img.read(filepath){self.density = 144}.first
 
   # Marksheet Area
-  jpg.resizecutting(img, filelist[n], markdir, startx, starty, endx, endy, 300, 284) #300=resizedx, 284=resizedy
+  #jpg.resizecutting(img, filelist[n], markdir, startx, starty, endx, endy, 300, 284) #300=resizedx, 284=resizedy
   # Comment Area
-  jpg.cutting(img, filelist[n], '02 key', 0, 2950, img.columns, 4530) #sx, sy, ex, ey
-  jpg.cutting(img, filelist[n], '03 com', 0, 4850, img.columns, 5900) #sx, sy, ex, ey
+  jpg.cutting(img, filelist[n], '02 key', 0, 2700, img.columns, 4350) #sx, sy, ex, ey
+  jpg.cutting(img, filelist[n], '03 com', 0, 4550, img.columns, 5550) #sx, sy, ex, ey
   n += 1
 end
 #p filelist
 
 #1 SET OMRCONFIG
-@recognizer = RubyMarks::Recognizer.new
-conf = Conf::new(@recognizer)
-conf.OMRsettings(25, 23, 30, 284, 5, 30) #OMRsettings(tolerance, size, startx, endx, starty, betweeny)
+#@recognizer = RubyMarks::Recognizer.new
+#conf = Conf::new(@recognizer)
+#conf.OMRsettings(25, 23, 30, 284, 5, 30) #OMRsettings(tolerance, size, startx, endx, starty, betweeny)
 
 #2 READ Marks
-marks = ReadMarks::new(@recognizer)
-marks.read(thumb, markdir, markeddir, filelist, results)
+#marks = ReadMarks::new(@recognizer)
+#marks.read(thumb, markdir, markeddir, filelist, results)
 
 #3 WRITE Results
 csv = WriteCSV::new
